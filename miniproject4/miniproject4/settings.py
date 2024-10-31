@@ -55,7 +55,7 @@ ROOT_URLCONF = 'miniproject4.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  # Empty since using app directories
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
