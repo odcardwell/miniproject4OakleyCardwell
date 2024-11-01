@@ -1,8 +1,21 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Contact Page</h1>
-<p>This is the contact page of your Django app.</p>
+<h1>Contact Us</h1>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
 {% endblock %}
