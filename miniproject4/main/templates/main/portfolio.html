@@ -3,6 +3,23 @@
 {% block title %}Portfolio{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Portfolio Page</h1>
-<p>This is the portfolio page of your Django app.</p>
+<h1>My Portfolio</h1>
+<div class="row">
+    {% for project in projects %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    {% if project.link %}
+                        <a href="{{ project.link }}" class="btn btn-primary">View Project</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No projects available at this time.</p>
+    {% endfor %}
+</div>
 {% endblock %}

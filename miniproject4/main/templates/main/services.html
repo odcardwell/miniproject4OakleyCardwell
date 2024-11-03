@@ -1,8 +1,53 @@
+<!-- services.html -->
+
 {% extends 'main/base.html' %}
 
 {% block title %}Services{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Services Page</h1>
-<p>This is the services page of your Django app.</p>
+<h1>Our Services</h1>
+<div class="row">
+    {% for service in services %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    <p class="card-text">{{ service.description|truncatechars:100 }}</p>
+                    <p class="card-text"><strong>${{ service.price }}</strong></p>
+                    <!-- Modal Trigger -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#serviceModal{{ service.id }}">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Modals -->
+{% for service in services %}
+    <!-- Modal -->
+    <div class="modal fade" id="serviceModal{{ service.id }}" tabindex="-1" aria-labelledby="serviceModalLabel{{ service.id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ service.title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ service.description }}</p>
+                    <p><strong>Price:</strong> ${{ service.price }}</p>
+                    <!-- Add any additional details here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Optionally, add a button to proceed with the service -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}
+

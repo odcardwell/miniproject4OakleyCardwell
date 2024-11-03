@@ -1,8 +1,8 @@
 {% extends 'main/base.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}{{ about.title }}{% endblock %}
 
 {% block content %}
-<h1>Welcome to the About Page</h1>
-<p>This is the about page of your Django app.</p>
+<h1>{{ about.title }}</h1>
+<p>{{ about.content }}</p>
 {% endblock %}

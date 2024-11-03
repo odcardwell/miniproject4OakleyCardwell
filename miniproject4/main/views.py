@@ -3,12 +3,14 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
+from .models import Service, About, Project
 
 def home(request):
     return render(request, 'main/home.html')
 
 def about(request):
-    return render(request, 'main/about.html')
+    about_content = About.objects.first()
+    return render(request, 'main/about.html', {'about': about_content})
 
 def contact(request):
     if request.method == 'POST':
@@ -22,10 +24,12 @@ def contact(request):
     return render(request, 'main/contact.html', {'form': form})
 
 def services(request):
-    return render(request, 'main/services.html')
+    services_list = Service.objects.all()
+    return render(request, 'main/services.html', {'services': services_list})
 
 def portfolio(request):
-    return render(request, 'main/portfolio.html')
+    projects = Project.objects.all()
+    return render(request, 'main/portfolio.html', {'projects': projects})
 
 def register(request):
     if request.method == 'POST':

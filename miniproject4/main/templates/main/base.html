@@ -10,7 +10,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     >
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'home' %}">MySite</a>
@@ -66,11 +66,19 @@
     {% endif %}
 </div>
 
-
+<main class="flex-fill">
     <div class="container mt-4">
         {% block content %}
         {% endblock %}
     </div>
+</main>
+    <!-- Footer -->
+<footer class="bg-light text-center text-lg-start mt-auto">
+    <div class="text-center p-3">
+        © 2024 Business Name:
+        <a class="text-dark" href="mailto:your.email@example.com">your.email@example.com</a>
+    </div>
+</footer>
 
 <!-- Bootstrap JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
