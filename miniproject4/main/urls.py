@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Oakley Cardwell
+# Mini Project 4
+
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views

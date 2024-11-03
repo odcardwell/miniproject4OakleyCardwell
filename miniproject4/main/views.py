@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Oakley Cardwell
+# Mini Project 4
+
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.contrib import messages

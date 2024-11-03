@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Oakley Cardwell
+# Mini Project 4
+
 """
 URL configuration for miniproject4 project.
 

@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Oakley Cardwell
+# Mini Project 4
+
 from django.contrib import admin
 from .models import ContactMessage, Service, Project, About
 
